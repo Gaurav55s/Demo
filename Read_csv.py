@@ -1,3 +1,21 @@
+def parse_headers(header_line):
+    return header_line.strip().split(',')
+
+def parse_values(data_line):
+    values = []         #Create array.
+    for item in data_line.strip().split(','):
+        if item =='':
+            values.append(0.0)
+        else : 
+            values.append(item)
+    return values
+
+def create_item_dict(values,headers):
+    result = {}
+    for value,header in zip(values,headers):
+        result[header] = value
+    return result
+
 def read_csv(path):
     result1 = []
     #Open the file in read mode
